@@ -1,27 +1,17 @@
-# Memoteca
+# Angular Cursos - Alura
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.2.
+Repositório para salvar e compartilhar meus códigos desenvlvidos durante a formação "Explore o Framework Angular" da Alura.
 
-## Development server
+## Angular 14: aplique os conceitos e desenvolva seu primeiro CRUD
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Neste curso irei aprender o básico do Angular enquanto desenvolvo um projetinho com um CRUD completo.
 
-## Code scaffolding
+O projeto é a Memoteca, uma biblioteca online onde podemos salvar pensamentos, frases, ideias e qualquer coisa interessante que quisermos salvar e deixar exposto no nosso mural.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Aula 1
 
-## Build
+#### Entendendo a estrutura
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Nesta aula aprendi o geral de como é a estrutura de um projeto Angular e como utilizar o CLI para criar um novo projeto, criar novos componentes e etc.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Também aprendi como os componentes da nossa aplicação podem ser utilizados no template HTML do "app", entendendo um pouco mais de como funciona o Decorator "@Component()".
