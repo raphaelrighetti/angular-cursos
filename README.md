@@ -23,3 +23,11 @@ Também aprendi como os componentes da nossa aplicação podem ser utilizados no
 Nesta aula aprendi a aplicar os Data Bindings na aplicação, tornando dinâmico o que aparece no template, assim como o que fica salvo no componente.
 
 Além disso, aprendi um pouco mais cobre o ngModel e como ele funciona, aplicando o Data Binding de via dupla.
+
+### Aula 3
+
+#### Aplicando rotas
+
+Nesta aula aprendi a como utilizar rotas no Angular, utilizando o "router-outler" e o "RouterModule", assim tendo apenas uma parte da página que atualiza ao acessar outra rota, enquanto o resto da página principal continua a mesma coisa.
+
+Também aprendi a criar links para outras rotas da nossa aplicação utilizando o "routerLink".

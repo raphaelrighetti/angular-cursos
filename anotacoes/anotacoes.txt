@@ -82,3 +82,26 @@ Diretivas são classes que conseguem modificar elementos em Runtime nas aplicaç
 
 As diretivas do Angular são classes já prontas para o uso e podem ser encontradas em diversos módulos do Angular.
 
+============router-outlet============
+
+"router-outlet" é uma tag que colocamos no nosso template para utilizarmos o roteamento do Angular, assim podendo acessar em um ponto específico de nossa página outro componente externo, sem ter que fazer o reload da página.
+
+Importante saber que quando mudamos a rota, a página ainda será a mesma, com tudo o que definimos na página raiz do app, apenas mudando o local onde adicionamos a tag "<router-outlet></router-outlet>" e renderizando o template do componente que colocamos na rota.
+
+============ROTAS============
+
+Para definirmos rotas, vamos no arquivo "app-routing.module.ts" e adicionamos as nossas rotas na constante "routes".
+
+As rotas são representadas em objetos com diversas propriedades disponíveis, as mais comuns sendo "path", que define o caminho da rota, e "component", que define o componente a ser renderizado no "router-outlet" quando aquela rota for acessada.
+
+============ROUTER LINK============
+
+É uma diretiva que adicionamos em aqlgum elemento do template que transforma o elemento em um link para outra rota da nossa aplicação.
+
+É importante lembrar que sempre temos que passar a "/" no começo da rota no "routerLink", pois se não passarmos a rota será adicionada à rota que já está acessada.
+
+Exemplo:
+
+routerLink="/pessoas/cadastrar"
+
+Podemos usar o "routerLinkActive" no nosso elemento para dizer que aquela rota é a que está ativa no momento.
