@@ -15,3 +15,11 @@ O projeto é a Memoteca, uma biblioteca online onde podemos salvar pensamentos, 
 Nesta aula aprendi o geral de como é a estrutura de um projeto Angular e como utilizar o CLI para criar um novo projeto, criar novos componentes e etc.
 
 Também aprendi como os componentes da nossa aplicação podem ser utilizados no template HTML do "app", entendendo um pouco mais de como funciona o Decorator "@Component()".
+
+### Aula 2
+
+#### Aplicando Data Bindings
+
+Nesta aula aprendi a aplicar os Data Bindings na aplicação, tornando dinâmico o que aparece no template, assim como o que fica salvo no componente.
+
+Além disso, aprendi um pouco mais cobre o ngModel e como ele funciona, aplicando o Data Binding de via dupla.

@@ -1,0 +1,84 @@
+Angular é um framework que nos permite criar SPAs e nos obriga a utilizarmos o TypeScript.
+
+Ele possui um CLI que utilizamos para fazer diversas coisas do framework, como criar um novo componente, uma nova interface e até mesmo iniciar um servidor com nossa aplicação onde temos um live-reload.
+
+============@Component()============
+
+É um Decorator que define diversas propriedades do nosso componente, como o "selector", que é o seletor utilizado no nome da tag HTML que irá inserir o nosso componente no "index.html".
+
+Além disso, temos propriedades que servem para definir o caminho do template (HTML) assim como o dos estilos (CSS/SCSS), para o Angular saber onde se encontram esses arquivos que pertencem ao componente.
+
+============GERANDO COMPONENTES============
+
+Podemos gerar componentes utilizando o Angular CLI. Para isso, basta utilizar o comando "ng g c <nome do componente>", que teremos a estrutura completa do componente, com o template, estilo, arquivo .ts e arquivo de testes do componente.
+
+============prefix angular.json============
+
+Essa propriedade prefix nos diz o prefixo que nossos seletores de templates de componentes devem ter, normalmente sendo "app".
+
+============MÓDULOS============
+
+No Angular, nossa aplicação é dividida em módulos que contém alguns componenetes daquele módulo, assim deixando todos os componentes que devem ser carregados em determinados pontos da página juntos, não fazendo o carregamento de componentes que não são necessários naquele ponto da página.
+
+O módulo principal é sempre o do "app" que é o "app.module.ts". Nele definimos os componentes da nossa aplicação que serão carregados no template do "app" a partir da propriedade "declarations", onde passamos a classe do nosso componente e só assim conseguimos utilizá-lo no "app".
+
+Como o módulo do "aap" é o principal e o que irá ser utilizado no início da aplicação, ele tem uma propriedade diferente nele, que é a "bootsstrap", que indica qual é o componente a ser carregado no boot da aplicação.
+
+============PROPERTY BINDING============
+
+Property Binding nada mais é do que a ação de atribuirmos à uma propriedade de algum elemento HTML do nosso template o valor de alguma propriedade da classe do nosso componente, assim podendo tornar o valor dessa propriedade do elemento HTML dinâmico.
+
+Para fazer isso, precisamos primeiro ter uma propriedade na nossa classe component que pode ser o que nós quisermos e, no arquivo .html, passarmos entre colchetes o nome da propriedade do elemento na qual queremos atribuir o valor da propriedade da classe, seguindo com o nome que colocamos na propriedade da nossa classe.
+
+Exemplo:
+
+[value]="minhaProp.valor"
+
+O que faz com que o valor da propriedade seja colocado no nosso elemento é justamente esses colchetes.
+
+Quando queremos fazer o Property Binding no InnerText de algum elemento HTML a sintaxe é um pouco diferente. Como não temos uma propriedade para envolver nos colchetes e queremos passar o valor como valor de texto da tag, temos que usa a sintaxe de chaves duplas: "{{ <minhaProp.valor> }}".
+
+Exemplo:
+
+<p>{{ meuTexto.mensagem }}</p>
+
+Dessa forma utilizamos o Property Binding com a interpolação.
+
+============EVENT BINDING============
+
+Event Binding nada mais é do que incluir um evento em algum elemento HTML que irá disparar alguma função da nossa classe.
+
+Para fazer isso, basta inserir uma propriedade no elemento HTML com o nome do evento que queremos entre parênteses e a função que queremos disparar como valor.
+
+Exemplo:
+
+(click)="handleClick()"
+
+Dessa forma será disparada a função "handleClick" todas as vezes que o usuário clicar no elemento.
+
+============TWO-WAY DATA BINDING============
+
+Os dois exemplos acima são Data Bindings de uma mão só, ou seja, só ocorrem modificacões com base em um dos lados para ocorrer no outro.
+
+Two-way Data Binding é o recurso capaz de fazer o binding tanto em alterações no component quanto no template, modificando os dados nos dois.
+
+Para utilizar este recurso, devemos utilizar a diretiva "ngModel", que faz parte do módulo "FormsModule" do Angular.
+
+A sintaxe dessa diretiva é uma junção das sintaxes do Property e Event Binding, utilizando colchetes e parênteses.
+
+Exemplo:
+
+[(ngModel)]="minhaProp.valor"
+
+Dessa forma, tanto o template quanto o component são modificados quando o usuário modifica o valor de algum campo ou algo do tipo.
+
+O "ngModel" ocupa o espaço do "value" dos inputs.
+
+No caso de um checkbox, o "ngModel" não irá sobrescrever o valor do checkbox onde você colocá-lo, mas sim selecionar o que tiver definido na propriedade da classe, tambpem passando o selecionado para a propriedade da classe a partir do template.
+
+============DIRETIVAS============
+
+Diretivas são classes que conseguem modificar elementos em Runtime nas aplicações Angular.
+
+As diretivas do Angular são classes já prontas para o uso e podem ser encontradas em diversos módulos do Angular.
+
