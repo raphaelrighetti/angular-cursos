@@ -39,3 +39,13 @@ Também aprendi a criar links para outras rotas da nossa aplicação utilizando 
 Nesta aula pude aprender mais sobre as diretivas do Angular e aprender algumas diretivas novas, como ngFor, ngIf e NgClass.
 
 Também aprendi as diferenças entre diretivas de componentes, estruturais e de atributos, aplicando os três tipos de diretivas no projeto Memoteca.
+
+### Aula 5
+
+#### Ajeitando projeto para utilizar Services
+
+Nesta aula aprendi como configurar uma "Mock API" para utilizarmos na nossa aplicação, simulando uma comunicação real entre a nossa aplicação front-end com uma API do back-end.
+
+Além disso, aprendi para que servem as classes Service no Angular, além de ter aprendido sobre como funciona a injeção de dependências no Angular, injetando o HttpClient na classe service do pensamento.
+
+Também vi que é possível criar interfaces e utilizá-las normalmente no Angular, assim como no TypeScript, o que facilita muito na comunicação entre cliente e servidor.

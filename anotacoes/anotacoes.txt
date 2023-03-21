@@ -212,3 +212,24 @@ Também podemos usar o NgClass com expressões booleanas, por exemplo:
 [ngClass]="{'color-blue': active}">
 
 Nesse caso estamos passando um objeto que contém a propriedade "color-blue" que recebe o valor da propriedade "active", que é um booleano. Se o valor de active for true, a classe "color-blue" será aplicada no elemento, se for false a classe não será aplicada.
+
+============INTERFACES============
+
+No Angular podemos utilizar as interfaces do TypeScript normalmente, normalmente utilizando-as para receber e enviar dados ao backend.
+
+============SERVICES============
+
+São classes responsáveis por executar alguma ou algumas funcionalidades que vão poder ser usadas nos nossos componentes e demais classes da nossa aplicação.
+
+Todas as classes service precisam ser "@Injectable()", o que faz com que consigamos utilizá-las injetadas em outras classes por meio da injeção de dependências.
+
+O parâmetro "providedIn" diz respeito ao acesso da dependência em nossa aplicação, sendo "root" a aplicação inteira.
+
+============INJEÇÃO DE DEPENDÊNCIAS============
+
+No angular também temos a injeção de dependências, assim tornando possível utilizarmos uma instância de uma classe sem termos que instanciar ela nós mesmos.
+
+Para usar a injeção de dependências, basta colocarmos um atributo privado no construtor da classe service, usando o recurso que nos permite criar atributos para a classe a partir do construtor, com o tipo da classe que queremos injetar e já podemos utilizá-la normalmente.
+
+O que torna uma classe injetável é o Decorator "@Injectable()".
+
