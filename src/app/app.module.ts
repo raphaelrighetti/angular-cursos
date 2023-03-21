@@ -9,6 +9,7 @@ import { CriarPensamentoComponent } from './pensamentos/criar-pensamento/criar-p
 import { FormsModule } from '@angular/forms';
 import { ListarPensamentoComponent } from './pensamentos/listar-pensamento/listar-pensamento.component';
 import { PensamentoComponent } from './pensamentos/pensamento/pensamento.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { PensamentoComponent } from './pensamentos/pensamento/pensamento.compone
     ListarPensamentoComponent,
     PensamentoComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
