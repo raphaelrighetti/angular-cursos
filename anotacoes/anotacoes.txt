@@ -44,6 +44,10 @@ Exemplo:
 
 Dessa forma utilizamos o Property Binding com a interpolação.
 
+Também podemos utilizar essa interpolação para nomes de classes e muitas outras coisas nos elementos HTML, por exemplo:
+
+<p class="{{ minhaProp.estiloP }}">Este é um parágrafo estilizado</p>
+
 ============EVENT BINDING============
 
 Event Binding nada mais é do que incluir um evento em algum elemento HTML que irá disparar alguma função da nossa classe.
@@ -105,3 +109,106 @@ Exemplo:
 routerLink="/pessoas/cadastrar"
 
 Podemos usar o "routerLinkActive" no nosso elemento para dizer que aquela rota é a que está ativa no momento.
+
+============*ngFor============
+
+*ngFor é uma diretiva que nos permite fazer um for em uma lista de componentes para serem adicionados dinamicamente no nosso template, o que é muito útil quando estamos trabalhando com dados que chegam de um back-end e não temos como ter certeza dos dados que estarão lá.
+
+É uma diretiva estrutural que consegue modificar os elementos no HTML.
+
+É importante lembrar que não devemos colocar essa diretiva diretamente no componente em que queremos usá-la, e sim na tag mãe dele.
+
+Precisamos passar uma expressão para esse "*ngFor", que é igual às expressões que passamos para um for normal, como o for...in, for...of, etc.
+
+Sintaxe:
+
+*ngFor="let item of list"
+
+============Comunicação entre componentes no *ngFor============
+
+Como precisamos de uma lista de componentes para utilizar o *ngFor no nosso template, precisamos de comunicação entre o componente onde está a lista de componentes e o componente do qual a lista é formada.
+
+Para ter essa comunicação, o componente do qual a lista é formada deve ser um "Dumb Component", ou seja, um componente que não possui nenhuma informação de fato e irá receber as informações necessárias por fora.
+
+Para isso, basta utilizarmos o Decorator @Input() logo acima do objeto do nosso Dumb Component, assim dizendo que os dados que devem estar nesse objeto serão recebidos a partir de outro componente que irá enviá-los.
+
+Exemplo:
+
+export class PensamentoComponent {
+  @Input()
+  pensamento = {
+    conteudo: '',
+    autoria: '',
+    modelo: '',
+  };
+}
+
+Só isso não basta, pois mesmo o Dumb Component estando pronto para receber os dados de outro componente, ainda não passamos esses dados para ele no outro componente.
+
+Para isso, precisamos utilizar o Property Binding, dessa vez passando o nome da propriedade objeto nos colchetes e atribuindo a variável que representa o item da lista nessa propriedade.
+
+Exemplo:
+
+<section class="mural" *ngFor="let pensamento of pensamentos">
+  <app-pensamento [pensamento]="pensamento"></app-pensamento>
+</section>
+
+Meio complexo de entender, mas é só ter em mente que precisamos passar esses dados para o componente filho a partir do componente pai e esse é o jeito que fazemos isso.
+
+============*ngIf============
+
+*ngIf é uma diretiva que nos permite adicionar condições no nosso template, ou seja, nos permite renderizar algo diferente no nosso template se alguma condição for verdadeira ou não.
+
+Nessa diretiva passamos a nossa expressão como se fosse a expressão de um if convencional mesmo, podendo inclusive passar um else, mas aí a sintaxe fica meio diferente.
+
+Exemplo:
+
+<div class="mural" *ngIf="pensamentos.length > 0, else semPensamentos">
+  <div *ngFor="let pensamento of pensamentos">
+    <app-pensamento [pensamento]="pensamento"></app-pensamento>
+  </div>
+</div>
+
+Dessa forma, a div que está envolvida na div que contém o *ngIf será renderizada somente se a expressão que passamos no *ngIf for verdadeira. Se não for, o "ng-template" de nome "semPensamentos" que será renderizado no lugar.
+
+============<ng-template #nome></ng-template>============
+
+A tag "ng-template" é uma tag especial que nunca é renderizada por padrão e só é renderizada quando chamamos ela explicitamente pelo nome, normalmente utilizada no *ngIf.
+
+Para declararmos o nome do ng-template, basta passar o nome que queremos após o sinal "#".
+
+Exemplo:
+
+<ng-template #semPensamentos>
+  <div class="ff-inter sem-pensamentos">
+    <p>Ainda não há nenhum pensamento cadastrado.</p>
+  </div>
+</ng-template>
+
+============NgClass============
+
+NgClass é uma diretiva usada para colocar classes CSS dinâmicas em elementos HTML nos nossos componentes, o que é muito útil quando queremos mudar o estilo de um elemento tendo base em condições.
+
+Para usarmos essa diretiva, usamos a mesma sintaxe de Property Binding, passando o "NgClass" dentro de colchetes e passando a classe como valor.
+
+Para o valor da classe ser dinâmico, podemos criar um método no nosso componente que retorna uma string que é o nome da classe, retornando uma classe diferente baseado em condições.
+
+Sintaxe:
+
+<div class="pensamento {{ pensamento.modelo }} ff-roboto-mono" [ngClass]="largura()">
+
+Função "largura()":
+
+largura(): string {
+  if (this.pensamento.conteudo.length >= 256) {
+    return 'pensamento-g';
+  } else {
+    return 'pensamento-p';
+  }
+}
+
+Também podemos usar o NgClass com expressões booleanas, por exemplo:
+
+[ngClass]="{'color-blue': active}">
+
+Nesse caso estamos passando um objeto que contém a propriedade "color-blue" que recebe o valor da propriedade "active", que é um booleano. Se o valor de active for true, a classe "color-blue" será aplicada no elemento, se for false a classe não será aplicada.

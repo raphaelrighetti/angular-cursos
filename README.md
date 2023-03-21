@@ -31,3 +31,11 @@ Além disso, aprendi um pouco mais cobre o ngModel e como ele funciona, aplicand
 Nesta aula aprendi a como utilizar rotas no Angular, utilizando o "router-outler" e o "RouterModule", assim tendo apenas uma parte da página que atualiza ao acessar outra rota, enquanto o resto da página principal continua a mesma coisa.
 
 Também aprendi a criar links para outras rotas da nossa aplicação utilizando o "routerLink".
+
+### Aula 4
+
+#### Entendendo diretivas
+
+Nesta aula pude aprender mais sobre as diretivas do Angular e aprender algumas diretivas novas, como ngFor, ngIf e NgClass.
+
+Também aprendi as diferenças entre diretivas de componentes, estruturais e de atributos, aplicando os três tipos de diretivas no projeto Memoteca.
