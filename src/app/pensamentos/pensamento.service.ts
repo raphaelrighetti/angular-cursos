@@ -11,11 +11,29 @@ export class PensamentoService {
 
   constructor(private http: HttpClient) {}
 
+  criar(pensamento: Pensamento): Observable<Pensamento> {
+    return this.http.post<Pensamento>(this.urlAPI, pensamento);
+  }
+
   listar(): Observable<Pensamento[]> {
     return this.http.get<Pensamento[]>(this.urlAPI);
   }
 
-  criar(pensamento: Pensamento): Observable<Pensamento> {
-    return this.http.post<Pensamento>(this.urlAPI, pensamento);
+  editar(pensamento: Pensamento): Observable<Pensamento> {
+    const url = `${this.urlAPI}/${pensamento.id}`;
+
+    return this.http.put<Pensamento>(url, pensamento);
+  }
+
+  excluir(id: number): Observable<Pensamento> {
+    const url = `${this.urlAPI}/${id}`;
+
+    return this.http.delete<Pensamento>(url);
+  }
+
+  buscarPorId(id: number): Observable<Pensamento> {
+    const url = `${this.urlAPI}/${id}`;
+
+    return this.http.get<Pensamento>(url);
   }
 }

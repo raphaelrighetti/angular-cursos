@@ -49,3 +49,21 @@ Nesta aula aprendi como configurar uma "Mock API" para utilizarmos na nossa apli
 Além disso, aprendi para que servem as classes Service no Angular, além de ter aprendido sobre como funciona a injeção de dependências no Angular, injetando o HttpClient na classe service do pensamento.
 
 Também vi que é possível criar interfaces e utilizá-las normalmente no Angular, assim como no TypeScript, o que facilita muito na comunicação entre cliente e servidor.
+
+### Aula 6
+
+#### Fazendo requisições à API
+
+Nessa aula aprendi a utilizar o HttpClient para fazer requisições à uma API do backend, vendo alguns detalhes de como esse recurso e o Observable funcionam, implementando todas as funcionalidades de um CRUD no projeto.
+
+Também aprendi a criar uma API para o desenvolvimento do frontend utilizando o json-server, assim não tendo a necessidade de ter um backend pronto para dispararmos as requisições, assim tornando o desenvolvimento mais rápido e simples.
+
+Além disso, aprendi mais sobre o Router e o ActivatedRoute, que ajudam muito para trabalhar com as rotas e extrair informações delas.
+
+### Conclusão
+
+Neste curso pude entender o básico do Angular e criar o meu primeiro CRUD usando o framework.
+
+Foi muito legal desenvolver o projeto do curso e estou muito satisfeito com o resultado.
+
+Me sinto mais confiante para desenvolver o frontend dos meus projetos utilizando o Angular e estou muito animado para continuar os meus estudos.

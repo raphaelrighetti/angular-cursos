@@ -110,6 +110,10 @@ routerLink="/pessoas/cadastrar"
 
 Podemos usar o "routerLinkActive" no nosso elemento para dizer que aquela rota é a que está ativa no momento.
 
+Podemos também utilizar o "Router", que é uma alternativa bem boa, pois nos dá a possibilidade de navegar para outra rota por base em algo no código, não só com a interação do usuário em um botão, por exemplo.
+
+Podemos utilizar o Router com a injeção de dependências.
+
 ============*ngFor============
 
 *ngFor é uma diretiva que nos permite fazer um for em uma lista de componentes para serem adicionados dinamicamente no nosso template, o que é muito útil quando estamos trabalhando com dados que chegam de um back-end e não temos como ter certeza dos dados que estarão lá.
@@ -233,3 +237,36 @@ Para usar a injeção de dependências, basta colocarmos um atributo privado no 
 
 O que torna uma classe injetável é o Decorator "@Injectable()".
 
+============HttpClient============
+
+HttpClient é o recurso do Angular que utilizamos para fazer requisições HTTP à APIs.
+
+Para utilizá-lo, precisamos importar o "HttpClientModule" no nosso módulo do app.
+
+Assim que temos ele disponível no nosso service com a injeção de dependências, basta utilizarmos os métodos disponíveis na instância que temos no nosso service conforme o necessário, podendo, inclusive, tipar o retorno da requisição com o uso de Generics.
+
+Entretanto, precisamos utilizar o "Observable", um recurso do rxjs que nos permite tornar um endpoint da API observável, assim nos permitindo observar toda mudança que aconteça nesse endpoint.
+
+Os métodos que fazem as requisições na API do HttpClient já retornam um Observable, mas precisamos explicitar esse retorno no nosso método para conseguirmos utilizá-lo.
+
+Com esse Observable sendo retornado, basta invocarmos o método do nosso service com um instância injetada dele em algum componente e usar o método "subscribe", que recebe uma função de callback que vai ser o que será executado quando a resposta chegar. É aí que fazemos a ação de atribuir os valores para algum objeto ou lista ou o que quisermos fazer com os dados recebidos.
+
+============ActivatedRoute============
+
+É uma classe que pode ser injetada nos nossos componentes e nos dá acesso a uma série de informações sobre a rota que está ativa no router-outlet do nosso app.
+
+Podemos usar ela para pegar uma Path Variable da nossa rota, como, por exemplo, o id de algum objeto a ser deletado ou modificado que passamos na rota.
+
+Para isso, basta utilizarmos as propriedades "snapshot", "paramMap" e o método "get(<nome da Path Variable>)".
+
+Assim conseguimos ter essa variável salva no nosso componente.
+
+============PATH VARIABLE EM ROTAS============
+
+Podemos usar um Path Variable nas nossas rotas do app.
+
+Para isso, basta colocarmos o nome de variável após o sinal ":" na nossa rota.
+
+Exemplo:
+
+{ path: 'pensamento/excluir/:id', component: ExcluirPensamentoComponent }
