@@ -79,3 +79,13 @@ Neste curso irei melhorar o projeto "Memoteca", adicionando funcionalidades como
 Nesta aula aprendi a utilizar o módulo "ReactiveFormsModule" e algumas de suas classes para transformar o formulário de criação de pensamentos em um formulário reativo, o que ajudará muito quando for fazer as validações dos campos e etc.
 
 Aprendi também a utilizar o "FormGroup" e os "FormControls" no template HTML do componente, assim conseguindo ter o "Two Way Data Binding", assim como conseguindo ler os valores dos "FormControls" com a interpolação em tags HTML.
+
+### Aula 2
+
+#### Fazendo validações no formulário
+
+Nesta aula aprendi a utilizar a classe "Validators" do Angular para fazer validações nos campos do nosso formulário, assim podendo impedir a submissão do mesmo e mostrar mensagens personalizadas conforme o erro que for causado e apenas quando o usuário já tiver interagido com o campo em questão.
+
+Também aprendi a desabilitar botões, mudar classes CSS de elementos e etc com base nos erros de validação, o que é muito útil.
+
+Gostei bastante dessa aula e sinto que os formulários do site estão ficando muito mais robustos.

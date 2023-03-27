@@ -329,3 +329,54 @@ Usamos esse operador "?" para especificar que esse valor pode ser nulo.
 
 Utilizando todos esses conceitos, temos o formulário reativo que atualiza os dados na página conforme o input do usuário.
 
+
+============VALIDACOES FormControl============
+
+O Angular possui uma classe "Validators", que é responsável por fazer diversas validações já prontas, como colocar um tamanho mínimo ou máximo de caracteres no input, adicionar um padrão com regex que aquele input deve seguir, enfim.
+
+Para utilizarmos ela, basta adicionarmos outro array como segundo item do array que colocamos para cada FormControl no FormBuilder que irá conter alguns métodos da classe "Validators", por exemplo:
+
+  ngOnInit(): void {
+    this.formulario = this.formBuilder.group({
+      conteudo: ['', [Validators.required]],
+      autoria: ['', [Validators.required]],
+      modelo: ['modelo1'],
+    });
+  }
+
+Neste exemplo estamos dizendo que os dois primeiros FormControls do FormGroup são obrigatórios, e essa validação já irá ocorrer.
+
+Podemos pegar o resultado da validação utilizando a propriedade "value" do nosso FormGroup, assim podendo fazer ou não fazer alguma ação conforme o resultado da validação.
+
+Se quisermos fazer mais de uma validação em um FormGroup, em vez de passar o array com os métodos de "Validators", podemos passar o método "Validators.compose([<métodos>])", assim tendo mais de um método de validação funcionando ao mesmo tempo.
+
+
+============ACESSANDO ERROS DE VALIDAÇÃO============
+
+Para acessar os erros de validação que podem ocorrer em um FormControl. basta acessarmos a propriedade "errors" dele. Nessa propriedade é salvo um objeto que contém o tipo do erro como e a mensagem como chave-valor.
+
+Para mostrarmos uma mensagem personalizada na tela quando um erro ocorrer, podemos utilizar essa propriedade "errors" juntamente com a diretiva *ngIf, assim renderizando o campo somente se um erro de validação tiver ocorrido. Por exemplo:
+
+  <div class="mensagem__erro"
+    *ngIf="formulario.get('conteudo')?.errors>
+    Pensamento é obrigatório!
+  </div>
+
+Dessa forma, o erro aparecerá mesmo se o usuário não tiver interagido com o formulário, o que não é o ideal. Também era mostrar a mesma mensagem de erro para qualquer erro que tiver ocorrido, o que também não é o ideal. Para combatermos isso, podemos especificar o erro que queremos e especificar que só deve ser renderizada a mensagem de erro se o campo tiver tido interação do usuário. Fazemo isso da seguinte forma:
+
+  <div class="mensagem__erro"
+    *ngIf="formulario.get('conteudo')?.errors?.['required'] && formulario.get('conteudo')?.touched">
+    Pensamento é obrigatório!
+  </div>
+  <div class="mensagem__erro"
+    *ngIf="formulario.get('conteudo')?.errors?.['pattern'] && formulario.get('conteudo')?.touched">
+    Pensamento não pode conter apenas espaços vazios!
+  </div>
+
+Dessa forma especificamos o erro com a sintaxe "errors.['<nome do erro>']" e especificamos que só é para ser renderizado se a propriedade "touched" do FormControl for true, assim só renderizando após a interação do usuário.
+
+Não entendi muito bem o porque de a sintaxe para acessar um erro específico ser dessa forma, mas é assim que funciona.
+
+Podemos também habilitar e desabilitar botões e elementos da página com base nas validações do formulário.
+
+Para isso, basta utilizarmos o [ngClass] junto com o [disabled], passando os valores pegados do nosso componentes.

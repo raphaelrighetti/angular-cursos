@@ -38,6 +38,7 @@ h2 {
 .botao {
   background: #154580;
   color: #ffffff;
+  max-height: 55px;
   max-width: 270px;
   width: 250px;
   padding: 1rem;
@@ -51,6 +52,19 @@ h2 {
 .botao:hover {
   border: 2px solid #84EEC1;
   color: #84EEC1;
+}
+
+.botao__desabilitado {
+  background: #7A7F87;
+  color: #FFFFFF;
+  max-height: 55px;
+  max-width: 270px;
+  width: 250px;
+  padding: 1rem;
+  margin: 0 auto;
+  border: 2px solid #C4C4C4;
+  border-radius: 10px;
+  transition: 0.5s ease;
 }
 
 @media (min-width: 576px) {
