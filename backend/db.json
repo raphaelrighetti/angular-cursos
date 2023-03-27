@@ -7,12 +7,6 @@
       "modelo": "modelo2"
     },
     {
-      "id": 3,
-      "conteudo": "Testando 3 (editado)",
-      "autoria": "Raphael Righetti",
-      "modelo": "modelo1"
-    },
-    {
       "id": 4,
       "conteudo": "Testando 4 (editado)",
       "autoria": "Raphael Righetti",
@@ -23,6 +17,12 @@
       "autoria": "Raphael Righetti",
       "modelo": "modelo3",
       "id": 7
+    },
+    {
+      "conteudo": "Amanhã vou ter um encontro com meu namorado, estou tão feliz!!",
+      "autoria": "Lua",
+      "modelo": "modelo2",
+      "id": 8
     }
   ]
 }

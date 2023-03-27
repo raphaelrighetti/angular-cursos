@@ -270,3 +270,62 @@ Para isso, basta colocarmos o nome de variável após o sinal ":" na nossa rota.
 Exemplo:
 
 { path: 'pensamento/excluir/:id', component: ExcluirPensamentoComponent }
+
+============FORMULÁRIOS REATIVOS============
+
+No Angular, já temos um módulo pronto para termos formulários reativos, que é o "ReactiveFormsModule", que podemos importar no nosso módulo do app.
+
+Essencialmente, o que ele faz é nos possibilitar a ter toda a reatividade que queremos no nosso formulário, ou seja, quando usamos esse módulo, não precisamos utilizar a diretiva "ngModel" para fazer o Two Way Data Binding, por exemplo.
+
+Também nos ajuda muito a fazer validações no nosso formulário, como campos obrigatórios, campos somente de texto e etc.
+
+Para utilizarmos as classes desse módulo, precisamos tê-lo importado no nosso módulo do app. Dessa forma, podemos utilizar as classes do módulo nos nossos componentes.
+
+Primeiro de tudo, precisamos ter uma propriedade no nosso componente do tipo "FormGroup", que vai ser o grupo de campos dos quais o nosso formulário consiste. Devemos iniciar essa propriedade vazia, utilizando o operador "!" para counterar o null. Essa propriedade precisa ser um objeto que vai ter todos os campos do nosso formulário.
+
+Para adicionarmos os campos do nosso formulário, devemos adicionar cada um deles com o tipo "FormControl". Temos duas formas de fazer isso:
+
+1. Com o "FormBuilder":
+
+  ngOnInit(): void {
+    this.formulario = this.formBuilder.group({
+      conteudo: ['Formulário reativo'],
+      autoria: ['Angular'],
+      modelo: ['modelo1'],
+    });
+  }
+
+  Dessa forma teremos todos os "FormControls" inicializando-os de forma mais intuitiva, passando arrays com os valores.
+
+  Precisamos injetar o "FormBuilder" no nosso componente para usá-lo.
+
+2. Sem o "FormBuilder":
+
+  ngOnInit(): void {
+    this.formulario = new FormGroup({
+      conteudo: new FormControl(''),
+      autoria: new FormControl(''),
+      modelo: new FormControl('')
+    })
+  }
+
+  Dessa forma temos o mesmo resultado que temos com o "FormBuilder", porém temos que inicializar as instâncias manualmente.
+
+  As duas formas são corretas e dependem somente do gosto e do padrão que o projeto está seguindo, pois as duas formas funcionam exatamente do mesmo jeito por baixo dos panos.
+
+Para utilizarmos esse formulário reativo no nosso template, temos que adicionar a seguinte Property Binding na nossa tag "form":
+
+[formGroup]="<nome da propriedade FormGroup>"
+
+Além disso, temos que adicionar a propriedade "formControlName" com exatamente o mesmo nome do "FormControl" no nosso "FormGroup" nos inputs do formulário que temos no nosso template.
+
+Dessa forma já temos o Two Way Data Binding dos nossos campos do formulário.
+
+Se quisermos pegar o valor de algum "FormControl" do nosso "FormGroup", precisamos utilizar os seguintes métodos e propriedades do "FormGroup":
+
+<FormGroup>.get('<FormControl>')?.value
+
+Usamos esse operador "?" para especificar que esse valor pode ser nulo.
+
+Utilizando todos esses conceitos, temos o formulário reativo que atualiza os dados na página conforme o input do usuário.
+

@@ -67,3 +67,15 @@ Neste curso pude entender o básico do Angular e criar o meu primeiro CRUD usand
 Foi muito legal desenvolver o projeto do curso e estou muito satisfeito com o resultado.
 
 Me sinto mais confiante para desenvolver o frontend dos meus projetos utilizando o Angular e estou muito animado para continuar os meus estudos.
+
+## Angular 14: evoluindo a aplicação
+
+Neste curso irei melhorar o projeto "Memoteca", adicionando funcionalidades como pesquisa de pensamentos por autoria, curtidas em pensamentos, validações no formulário de criação de pensamento, entre outras.
+
+### Aula 1
+
+#### Aplicando fomulário reativo
+
+Nesta aula aprendi a utilizar o módulo "ReactiveFormsModule" e algumas de suas classes para transformar o formulário de criação de pensamentos em um formulário reativo, o que ajudará muito quando for fazer as validações dos campos e etc.
+
+Aprendi também a utilizar o "FormGroup" e os "FormControls" no template HTML do componente, assim conseguindo ter o "Two Way Data Binding", assim como conseguindo ler os valores dos "FormControls" com a interpolação em tags HTML.
