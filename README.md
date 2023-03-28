@@ -97,3 +97,11 @@ Gostei bastante dessa aula e sinto que os formulários do site estão ficando mu
 Nessa aula aprendi a aplicar paginação nos itens retornados pela API com o intuito de melhorar a performance da página, fazendo com que o usuário tenha que clicar em um botão para carregar mais pensamentos após os que já aparecem na tela, que foram limitados para o total de 6 pensamentos por página.
 
 Para fazer isso, aprendi a utilizar a classe HttpParams, uma classe que facilita muito a utilizarmos parâmetros na URL em que iremos mandar a nossa requisição, fazendo com que não precisemos escrever os parâmetros na própria URL, e sim atribuí-los à uma instância da classe e passá-la junto com o corpo da requisição nos métodos do HttpClient.
+
+### Aula 4
+
+#### Adicionando funcionalidade de pesquisa
+
+Nesta aula aprendi a implementar uma funcionalidade de pesquisa no projeto, modificando a lógica da requisição feita no service de pensamentos e adicionando um Event Binding ao input de pesquisa criado, para que a cada letra que o usuário digite seja disparada uma requisição ao backend onde o filtro será aplicado e serão retornados apenas os pensamentos que contém a string passada no input.
+
+Também tive que lidar com a paginação ao mesmo tempo que essa pesquisa é feita, resetando todos os valores de página atual e afins, pois se isso não fosse feito, iria quebrar a página e a pesquisa não iria funcionar corretamente.
