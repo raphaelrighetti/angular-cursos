@@ -1,18 +1,6 @@
 {
   "pensamentos": [
     {
-      "id": 2,
-      "conteudo": "Testando 2 (editado novamente)",
-      "autoria": "Raphael Righetti",
-      "modelo": "modelo2"
-    },
-    {
-      "id": 4,
-      "conteudo": "Testando 4 (editado)",
-      "autoria": "Raphael Righetti Ramos",
-      "modelo": "modelo1"
-    },
-    {
       "conteudo": "Eu penso! (as vezes)",
       "autoria": "Raphael Righetti",
       "modelo": "modelo3",
@@ -23,6 +11,36 @@
       "autoria": "Lua",
       "modelo": "modelo2",
       "id": 8
+    },
+    {
+      "conteudo": "Digplei charlibrau",
+      "autoria": "Chorão",
+      "modelo": "modelo3",
+      "id": 9
+    },
+    {
+      "conteudo": "Eu sou o Dogras, você não é o Dogras!",
+      "autoria": "Dogras",
+      "modelo": "modelo2",
+      "id": 10
+    },
+    {
+      "conteudo": "You need a little reviiiive!",
+      "autoria": "Quick Revive",
+      "modelo": "modelo1",
+      "id": 11
+    },
+    {
+      "conteudo": "Será que vai mais de seis pensamentos aqui?",
+      "autoria": "Raphael Righetti",
+      "modelo": "modelo1",
+      "id": 13
+    },
+    {
+      "conteudo": "Jesus humilha o satanás. Ou uais. Ou iés.",
+      "autoria": "GTA V",
+      "modelo": "modelo3",
+      "id": 14
     }
   ]
 }

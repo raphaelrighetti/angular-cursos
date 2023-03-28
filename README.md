@@ -89,3 +89,11 @@ Nesta aula aprendi a utilizar a classe "Validators" do Angular para fazer valida
 Também aprendi a desabilitar botões, mudar classes CSS de elementos e etc com base nos erros de validação, o que é muito útil.
 
 Gostei bastante dessa aula e sinto que os formulários do site estão ficando muito mais robustos.
+
+### Aula 3
+
+#### Aplicando paginação no pensamentos
+
+Nessa aula aprendi a aplicar paginação nos itens retornados pela API com o intuito de melhorar a performance da página, fazendo com que o usuário tenha que clicar em um botão para carregar mais pensamentos após os que já aparecem na tela, que foram limitados para o total de 6 pensamentos por página.
+
+Para fazer isso, aprendi a utilizar a classe HttpParams, uma classe que facilita muito a utilizarmos parâmetros na URL em que iremos mandar a nossa requisição, fazendo com que não precisemos escrever os parâmetros na própria URL, e sim atribuí-los à uma instância da classe e passá-la junto com o corpo da requisição nos métodos do HttpClient.

@@ -380,3 +380,13 @@ Não entendi muito bem o porque de a sintaxe para acessar um erro específico se
 Podemos também habilitar e desabilitar botões e elementos da página com base nas validações do formulário.
 
 Para isso, basta utilizarmos o [ngClass] junto com o [disabled], passando os valores pegados do nosso componentes.
+
+============HttpParams============
+
+É uma classe do Angular que nos permite trabalhar com parâmetros nas URLs de forma mais fácil do que escrevermos eles diretamente na string da URL em si.
+
+Possui vários métodos que nos auxiliam nisso.
+
+Para utilizar esses parâmetros, basta criarmos uma variável do tipo HttpParams e ir concatenando os métodos conforme a nossa necessidade.
+
+Após isso, devemos passar essa variável na propriedade "params" do objeto que podemos passar como segundo argumento nos métodos do HttpClient.
