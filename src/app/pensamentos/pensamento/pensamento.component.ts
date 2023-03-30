@@ -17,6 +17,9 @@ export class PensamentoComponent {
     favorito: false,
   };
 
+  @Input()
+  pensamentosFavoritos: Pensamento[] = [];
+
   constructor(private service: PensamentoService) {}
 
   largura(): string {
@@ -36,6 +39,11 @@ export class PensamentoComponent {
   }
 
   mudarFavorito() {
-    this.service.mudarFavorito(this.pensamento).subscribe();
+    this.service.mudarFavorito(this.pensamento).subscribe(() => {
+      this.pensamentosFavoritos.splice(
+        this.pensamentosFavoritos.indexOf(this.pensamento),
+        1
+      );
+    });
   }
 }

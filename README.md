@@ -115,3 +115,23 @@ Nesta aula implementei a funcionalidade de favoritar e desfavoritar pensamentos,
 Achei muito legal essa funcionalidade e, apesar de não terem sido aplicados conceitos novos, pude praticar as coisas já vistas até agora.
 
 Agora falta implementar um filtro que só mostre os pensamentos favoritos para que o usuário possa aplicá-lo.
+
+### Aula 6
+
+#### Adicionando filtro de favoritos
+
+Nesta aula implementei o filtro de pensamentos favoritos, que mostra apenas os pensamentos marcados como favoritos e continua funcionando normalmente com a paginação e a pesquisa, fazendo com que essas outras funcionalidades também só procurem entre os pensamentos favoritos.
+
+Também implementei a funcionalidade de remover da lista de pensamentos favoritos um pensamento que o usuário desmarque dos favoritos enquanto vê a lista, o que não ocorria normalmente, utilizando o "subscribe()" do Observable, coisa que preciso estudar um pouco mais, pois vi que é muito poderoso implementando esta funcionalidade.
+
+Além disso, aprendi um pouco mais sobre o Router e vi que é possível recarregar um componente completamente sem ter que recarregar a página em si, e sim usando algumas configurações e métodos dele.
+
+### Conclusão
+
+Neste curso me apronfundei um pouco mais nos meus conhecimentos de Angular desenvolvendo mais funcionalidades para o projeto desenvolvido no curso anterior.
+
+Implementei formulários reativos, validações nos campos, paginação dos dados, funcionalidade de pesquisa e funcionalidade de favoritar e pude praticar muito meus conhecimentos e aprender muita coisa nova ao decorrer do curso.
+
+Gostei muito de implementar essas novas funcionalidades e o projeto ficou bem mais completo, me sinto muito mais confiante para aplicar todo este conhecimento que adquiri nos meus projetos pessoais e fazer aplicações mais completas no front-end.
+
+Muito animado para continuar me aprofundando no Angular!

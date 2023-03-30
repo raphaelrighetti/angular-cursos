@@ -11,21 +11,21 @@
       "conteudo": "Amanhã vou ter um encontro com meu namorado, estou tão feliz!!",
       "autoria": "Lua",
       "modelo": "modelo2",
-      "favorito": false,
+      "favorito": true,
       "id": 8
     },
     {
       "conteudo": "Digplei charlibrau",
       "autoria": "Chorão",
       "modelo": "modelo3",
-      "favorito": false,
+      "favorito": true,
       "id": 9
     },
     {
       "conteudo": "Eu sou o Dogras, você não é o Dogras!",
       "autoria": "Dogras",
       "modelo": "modelo2",
-      "favorito": true,
+      "favorito": false,
       "id": 10
     },
     {
@@ -46,7 +46,7 @@
       "conteudo": "Jesus humilha o satanás. Ou uais. Ou iés.",
       "autoria": "GTA V",
       "modelo": "modelo3",
-      "favorito": true,
+      "favorito": false,
       "id": 14
     }
   ]

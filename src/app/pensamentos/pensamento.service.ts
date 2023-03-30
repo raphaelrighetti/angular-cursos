@@ -15,7 +15,11 @@ export class PensamentoService {
     return this.http.post<Pensamento>(this.urlAPI, pensamento);
   }
 
-  listar(pagina: number, filtro: string): Observable<Pensamento[]> {
+  listar(
+    pagina: number,
+    filtro: string,
+    favoritos: boolean
+  ): Observable<Pensamento[]> {
     const itensPorPagina = 6;
 
     let params = new HttpParams()
@@ -24,6 +28,10 @@ export class PensamentoService {
 
     if (filtro.trim().length > 2) {
       params = params.set('q', filtro);
+    }
+
+    if (favoritos) {
+      params = params.set('favorito', true);
     }
 
     return this.http.get<Pensamento[]>(this.urlAPI, { params });

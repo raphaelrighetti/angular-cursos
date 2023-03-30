@@ -402,3 +402,25 @@ Importante saber que, se estivermos usando paginação, é iteressante que nessa
 ============INTERPOLAÇÂO HTML============
 
 Podemos chamar métodos, atribuir expressões e etc. às nossas interpolações no template.
+
+============subscribe()============
+
+É importante saber que o método "subscribe()" do Observable realmente escuta às mudanças feitas nos dados que ele entregou, mesmo que essas mudanças não ocorram na requisição em si, e sim nos dados que recebemos e mudamos de forma externa ao subscribe.
+
+O curso não entrou em muitos detalhes sobre isso, mas eu percebi que isso acontece. Preciso estudar um pouco do rxjs.
+
+============RECARREGANDO COMPONENTE============
+
+Podemos recarregar o componente completo sem realmente recarregar a página usando o Router.
+
+Para isso, temos que usar o Router para navegar para a mesma URL em que já estamos, ou seja, devemos utilizar o método "navigate()", podendo passar "this.router.url" como parâmetro, pois com essa propriedade temos acesso à URL atual sem termos que digitá-la.
+
+Só isso não basta, temos que especificar algumas configurações do Router antes de fazermos a navegação. Essas configurações são:
+
+1. routeReuseStrategy.shouldReuseRoute = () => false;:
+
+  Precisamos especificar essa configuração, pois o Angular utiliza o mesmo estado anterior do componente quando a URL é acessada novamente ao recarregar por padrão. Com essa strategy conseguimos mudar esse padrão e fazer com que ele não utilize o estado anterior, e sim renderize o componente por completo novamente.
+
+2. onSameUrlNavigation = 'reload';:
+
+  Assim especificamos ao Angular que quando navegarmos novamente para a mesma url que já estávamos, ele deverá recarregar o componente.
