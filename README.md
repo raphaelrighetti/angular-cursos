@@ -105,3 +105,13 @@ Para fazer isso, aprendi a utilizar a classe HttpParams, uma classe que facilita
 Nesta aula aprendi a implementar uma funcionalidade de pesquisa no projeto, modificando a lógica da requisição feita no service de pensamentos e adicionando um Event Binding ao input de pesquisa criado, para que a cada letra que o usuário digite seja disparada uma requisição ao backend onde o filtro será aplicado e serão retornados apenas os pensamentos que contém a string passada no input.
 
 Também tive que lidar com a paginação ao mesmo tempo que essa pesquisa é feita, resetando todos os valores de página atual e afins, pois se isso não fosse feito, iria quebrar a página e a pesquisa não iria funcionar corretamente.
+
+### Aula 5
+
+#### Adicionando favorito
+
+Nesta aula implementei a funcionalidade de favoritar e desfavoritar pensamentos, tendo um novo botão que muda a imagem conforme o valor de "favorito" do pensamento e muda esse valor quando é clicado.
+
+Achei muito legal essa funcionalidade e, apesar de não terem sido aplicados conceitos novos, pude praticar as coisas já vistas até agora.
+
+Agora falta implementar um filtro que só mostre os pensamentos favoritos para que o usuário possa aplicá-lo.

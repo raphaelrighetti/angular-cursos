@@ -398,3 +398,7 @@ Para implementarmos pesquisas na página é bem simples, basta termos um input c
 Dessa forma, para cada vez que o usuário digitar uma letra, a requisição será disparada no backend e caberá a ele ter a lógica de retornar os itens que se encaixam na pesquisa.
 
 Importante saber que, se estivermos usando paginação, é iteressante que nessa função de pesquisaa gente tenha uma lógica que dê um reset na página e em tudo que tiver a ver com a paginação, pois se não fizermos isso podem ocorrer problemas. Também devemos fazer com que continue funcionando alguma função de mudar a página ou carregarmais itens, pois se houver mais itens do que cabe em uma página nessa pesquisa, teremos que renderizá-los da mesma forma que estávamos renderizando.
+
+============INTERPOLAÇÂO HTML============
+
+Podemos chamar métodos, atribuir expressões e etc. às nossas interpolações no template.

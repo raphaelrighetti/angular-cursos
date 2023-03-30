@@ -10,8 +10,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./editar-pensamento.component.scss'],
 })
 export class EditarPensamentoComponent implements OnInit {
-  pensamentoId = 0;
-
   formulario!: FormGroup;
 
   constructor(
@@ -22,10 +20,8 @@ export class EditarPensamentoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const idParam = this.route.snapshot.paramMap.get('id') as string;
-    this.pensamentoId = parseInt(idParam);
-
     this.formulario = this.formBuilder.group({
+      id: [0],
       conteudo: [
         '',
         Validators.compose([
@@ -42,23 +38,32 @@ export class EditarPensamentoComponent implements OnInit {
         ]),
       ],
       modelo: [''],
+      favorito: [false],
     });
 
-    this.service.buscarPorId(this.pensamentoId).subscribe((pensamento) => {
+    const idParam = this.route.snapshot.paramMap.get('id') as string;
+    const id = parseInt(idParam);
+
+    this.service.buscarPorId(id).subscribe((pensamento) => {
+      this.formulario.controls['id'].setValue(pensamento.id);
       this.formulario.controls['conteudo'].setValue(pensamento.conteudo);
       this.formulario.controls['autoria'].setValue(pensamento.autoria);
       this.formulario.controls['modelo'].setValue(pensamento.modelo);
+      this.formulario.controls['favorito'].setValue(pensamento.favorito);
     });
+
+    console.log(this.formulario.get('favorito')?.value);
   }
 
   editarPensamento() {
     console.log(this.formulario.valid);
     if (this.formulario.valid) {
       const pensamento: Pensamento = {
-        id: this.pensamentoId,
+        id: this.formulario.get('id')?.value,
         conteudo: this.formulario.get('conteudo')?.value,
         autoria: this.formulario.get('autoria')?.value,
         modelo: this.formulario.get('modelo')?.value,
+        favorito: this.formulario.get('favorito')?.value,
       };
 
       this.service.editar(pensamento).subscribe(() => {
