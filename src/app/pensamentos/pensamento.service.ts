@@ -2,12 +2,13 @@ import { Pensamento } from './pensamento';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Pageable } from './pageable';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PensamentoService {
-  private readonly urlAPI = 'http://localhost:3000/pensamentos';
+  private readonly urlAPI = 'http://localhost:8080/pensamentos';
 
   constructor(private http: HttpClient) {}
 
@@ -19,22 +20,24 @@ export class PensamentoService {
     pagina: number,
     filtro: string,
     favoritos: boolean
-  ): Observable<Pensamento[]> {
+  ): Observable<Pageable> {
+    let url = this.urlAPI;
+
     const itensPorPagina = 6;
 
     let params = new HttpParams()
-      .set('_page', pagina)
-      .set('_limit', itensPorPagina);
+      .set('page', pagina)
+      .set('size', itensPorPagina);
 
     if (filtro.trim().length > 2) {
-      params = params.set('q', filtro);
+      params = params.set('filtro', filtro);
     }
 
     if (favoritos) {
-      params = params.set('favorito', true);
+      url += '/favoritos';
     }
 
-    return this.http.get<Pensamento[]>(this.urlAPI, { params });
+    return this.http.get<Pageable>(url, { params });
   }
 
   editar(pensamento: Pensamento): Observable<Pensamento> {

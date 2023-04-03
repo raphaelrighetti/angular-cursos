@@ -12,7 +12,7 @@ export class ListarPensamentoComponent implements OnInit {
   pensamentosFavoritos: Pensamento[] = [];
 
   titulo = 'Meu Mural';
-  paginaAtual = 1;
+  paginaAtual = 0;
   haMaisPensamentos = true;
   favoritos = false;
   filtro = '';
@@ -24,16 +24,18 @@ export class ListarPensamentoComponent implements OnInit {
   }
 
   listar() {
-    this.paginaAtual = 1;
+    this.paginaAtual = 0;
     this.haMaisPensamentos = true;
 
     this.service
       .listar(this.paginaAtual, this.filtro, this.favoritos)
-      .subscribe((pensamentos) => {
-        this.pensamentos = pensamentos;
+      .subscribe((pageable) => {
+        console.log(pageable);
+
+        this.pensamentos = pageable.content;
 
         if (this.favoritos) {
-          this.pensamentosFavoritos = pensamentos;
+          this.pensamentosFavoritos = pageable.content;
         }
       });
   }
@@ -55,9 +57,12 @@ export class ListarPensamentoComponent implements OnInit {
   carregarMaisPensamentos() {
     this.service
       .listar(++this.paginaAtual, this.filtro, this.favoritos)
-      .subscribe((pensamentos) => {
-        if (pensamentos.length) {
-          this.pensamentos.push(...pensamentos);
+      .subscribe((pageable) => {
+        if (pageable.content.length) {
+          this.pensamentos.push(...pageable.content);
+          if (this.favoritos) {
+            this.pensamentosFavoritos.push(...pageable.content);
+          }
         } else {
           this.haMaisPensamentos = false;
         }
@@ -65,13 +70,17 @@ export class ListarPensamentoComponent implements OnInit {
   }
 
   pesquisarPensamentos() {
-    this.paginaAtual = 1;
+    this.paginaAtual = 0;
     this.haMaisPensamentos = true;
 
     this.service
       .listar(this.paginaAtual, this.filtro, this.favoritos)
-      .subscribe((pensamentos) => {
-        this.pensamentos = pensamentos;
+      .subscribe((pageable) => {
+        this.pensamentos = pageable.content;
+
+        if (this.favoritos) {
+          this.pensamentosFavoritos = pageable.content;
+        }
       });
   }
 }

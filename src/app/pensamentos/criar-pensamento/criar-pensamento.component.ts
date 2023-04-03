@@ -34,7 +34,7 @@ export class CriarPensamentoComponent implements OnInit {
           Validators.maxLength(25),
         ]),
       ],
-      modelo: ['modelo1'],
+      modelo: ['MODELO1'],
       favorito: [false],
     });
   }
