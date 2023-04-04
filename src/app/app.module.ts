@@ -13,8 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ExcluirPensamentoComponent } from './pensamentos/excluir-pensamento/excluir-pensamento.component';
 import { EditarPensamentoComponent } from './pensamentos/editar-pensamento/editar-pensamento.component';
 import { BotaoCarregarMaisComponent } from './pensamentos/listar-pensamento/botao-carregar-mais/botao-carregar-mais.component';
-import { LoginComponent } from './autenticacao/login/login.component';
-import { RegistrarComponent } from './autenticacao/registrar/registrar.component';
+import { LoginComponent } from './usuario/autenticacao/login/login.component';
+import { RegistrarComponent } from './usuario/autenticacao/registrar/registrar.component';
 
 @NgModule({
   declarations: [

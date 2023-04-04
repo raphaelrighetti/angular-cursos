@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UsuarioService } from '../../usuario.service';
+import { Usuario } from '../../usuario';
 
 @Component({
   selector: 'app-registrar',
@@ -9,7 +11,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegistrarComponent implements OnInit {
   formulario!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private service: UsuarioService,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
@@ -40,8 +45,14 @@ export class RegistrarComponent implements OnInit {
     const username = this.formulario.get('username')?.value as string;
     const senha = this.formulario.get('senha')?.value as string;
 
-    console.log(`Nome de usuário: ${username}`);
-    console.log(`Senha: ${senha}`);
+    const usuario: Usuario = {
+      username,
+      senha,
+    };
+
+    this.service.registrar(usuario).subscribe((usuario) => {
+      console.log(usuario);
+    });
   }
 
   statusBotao(): string {

@@ -4,8 +4,8 @@ import { ListarPensamentoComponent } from './pensamentos/listar-pensamento/lista
 import { CriarPensamentoComponent } from './pensamentos/criar-pensamento/criar-pensamento.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './autenticacao/login/login.component';
-import { RegistrarComponent } from './autenticacao/registrar/registrar.component';
+import { LoginComponent } from './usuario/autenticacao/login/login.component';
+import { RegistrarComponent } from './usuario/autenticacao/registrar/registrar.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
