@@ -4,9 +4,13 @@ import { ListarPensamentoComponent } from './pensamentos/listar-pensamento/lista
 import { CriarPensamentoComponent } from './pensamentos/criar-pensamento/criar-pensamento.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './autenticacao/login/login.component';
+import { RegistrarComponent } from './autenticacao/registrar/registrar.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'pensamento/listar', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'registrar', component: RegistrarComponent },
   { path: 'pensamento/criar', component: CriarPensamentoComponent },
   { path: 'pensamento/listar', component: ListarPensamentoComponent },
   { path: 'pensamento/editar/:id', component: EditarPensamentoComponent },

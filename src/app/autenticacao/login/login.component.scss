@@ -1,0 +1,72 @@
+.login {
+  padding: 2rem 0;
+
+  form {
+    background: #C4EDFF;
+
+    border: none;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 2rem;
+
+    label {
+      color: #154580;
+      font-weight: bold;
+      margin: 0 0 1rem;
+    }
+
+    .input {
+      border: none;
+      height: 40px;
+      padding: 1rem 2rem;
+      border-radius: 20px;
+      margin: 0.5rem 0 2rem;
+    }
+
+    .textarea {
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 20px;
+      margin: 0.5rem 0 2rem;
+    }
+  }
+}
+
+.mensagem__erro {
+  font-size: 12px;
+  margin-left: 5px;
+  color: red;
+  margin-top: -25px;
+  margin-bottom: 20px;
+}
+
+.container-botao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.botao {
+  margin: 5px;
+  width: 200px;
+}
+
+.botao__desabilitado {
+  margin: 5px;
+  width: 200px;
+}
+
+.registrar {
+  text-align: center;
+  padding: 2rem 0 5rem;
+
+  a {
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: black;
+  }
+}

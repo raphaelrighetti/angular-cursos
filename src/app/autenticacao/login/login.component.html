@@ -1,0 +1,43 @@
+<section class="container login ff-inter">
+  <header class="header">
+    <h2>Login</h2>
+  </header>
+  <form [formGroup]="formulario">
+    <label for="username">Nome de usuário</label>
+    <input type="text" (input)="sohMinusculas()" placeholder="Nome de usuário" class="input" id="username"
+      formControlName="username">
+
+    <div class="mensagem__erro"
+      *ngIf="formulario.get('username')?.getError('required') && formulario.controls['username'].touched">
+      É necessário informar um nome de usuário!
+    </div>
+    <div class="mensagem__erro"
+      *ngIf="formulario.get('username')?.getError('pattern') && formulario.controls['username'].touched">
+      O nome de usuário não pode ser apenas espaços vazios!
+    </div>
+    <div class="mensagem__erro"
+      *ngIf="formulario.get('username')?.getError('maxlength') && formulario.controls['username'].touched">
+      O nome de usuário deve conter, no máximo, <b>20</b> caracteres!
+    </div>
+
+    <label for="senha">Senha</label>
+    <input type="password" placeholder="Senha" class="input" id="senha" formControlName="senha">
+
+    <div class="mensagem__erro"
+      *ngIf="formulario.get('senha')?.getError('required') && formulario.controls['senha'].touched">
+      É necessário informar uma senha!
+    </div>
+    <div class="mensagem__erro"
+      *ngIf="formulario.get('senha')?.getError('minlength') && formulario.controls['senha'].touched">
+      A senha deve conter, no mínimo, <b>8</b> caracteres!
+    </div>
+
+    <div class="container-botao">
+      <button type="submit" (click)="logar($event)" [disabled]="!formulario.valid"
+        [ngClass]="statusBotao()">Entrar</button>
+    </div>
+  </form>
+  <div class="registrar">
+    <p>Não tem uma conta? <b><a routerLink="/registrar">registrar</a></b></p>
+  </div>
+</section>

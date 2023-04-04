@@ -79,9 +79,9 @@
     </div>
 
     <div class="acoes">
-      <button type="button" (click)="criarPensamento()" [disabled]="!formulario.valid"
+      <button type="submit" (click)="criarPensamento($event)" [disabled]="!formulario.valid"
         [ngClass]="statusBotao()">Salvar</button>
-      <button class="botao" type="button" routerLink="/pensamento/listar">Cancelar</button>
+      <button type="button" routerLink="/pensamento/listar" class="botao">Cancelar</button>
     </div>
   </form>
 </section>

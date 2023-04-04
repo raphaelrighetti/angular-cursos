@@ -39,7 +39,9 @@ export class CriarPensamentoComponent implements OnInit {
     });
   }
 
-  criarPensamento() {
+  criarPensamento(event: Event) {
+    event.preventDefault();
+
     console.log(this.formulario.status);
     if (this.formulario.valid) {
       this.service.criar(this.formulario.value).subscribe(() => {
