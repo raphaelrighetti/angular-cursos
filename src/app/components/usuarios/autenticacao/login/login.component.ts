@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UsuarioService } from '../../usuario.service';
-import { Usuario } from '../../usuario';
+import { Router } from '@angular/router';
+import { Usuario } from 'src/app/interfaces/usuario';
+import { AuthService } from 'src/app/services/auth.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -12,11 +14,14 @@ export class LoginComponent implements OnInit {
   formulario!: FormGroup;
 
   constructor(
-    private service: UsuarioService,
+    private service: AuthService,
+    private router: Router,
     private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
+    localStorage.clear();
+
     this.formulario = this.formBuilder.group({
       username: [
         '',
@@ -51,7 +56,21 @@ export class LoginComponent implements OnInit {
     };
 
     this.service.logar(usuario).subscribe((obj) => {
-      console.log(obj.token);
+      if (obj) {
+        localStorage.setItem('usuarioId', String(obj.usuarioId));
+        localStorage.setItem('token', obj.token);
+        localStorage.setItem('refreshToken', obj.refreshToken);
+
+        console.log(
+          'localStorage usuarioId: ' + localStorage.getItem('usuarioId')
+        );
+        console.log('localStorage Token: ' + localStorage.getItem('token'));
+        console.log(
+          'localStorage Refresh Token: ' + localStorage.getItem('refreshToken')
+        );
+
+        this.router.navigate(['/pensamentos/listar']);
+      }
     });
   }
 

@@ -1,7 +1,7 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { PensamentoService } from './../pensamento.service';
-import { Pensamento } from './../pensamento';
+import { PensamentoService } from '../../../services/pensamento.service';
+import { Pensamento } from '../../../interfaces/pensamento';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -51,8 +51,6 @@ export class EditarPensamentoComponent implements OnInit {
       this.formulario.controls['modelo'].setValue(pensamento.modelo);
       this.formulario.controls['favorito'].setValue(pensamento.favorito);
     });
-
-    console.log(this.formulario.get('favorito')?.value);
   }
 
   editarPensamento() {
@@ -64,10 +62,12 @@ export class EditarPensamentoComponent implements OnInit {
         autoria: this.formulario.get('autoria')?.value,
         modelo: this.formulario.get('modelo')?.value,
         favorito: this.formulario.get('favorito')?.value,
+        privado: false,
+        usuarioId: 0,
       };
 
       this.service.editar(pensamento).subscribe(() => {
-        this.router.navigate(['/pensamento/listar']);
+        this.router.navigate(['/pensamentos/listar']);
       });
     }
   }

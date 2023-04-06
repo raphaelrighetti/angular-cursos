@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UsuarioService } from '../../usuario.service';
-import { Usuario } from '../../usuario';
+import { Router } from '@angular/router';
+import { Usuario } from 'src/app/interfaces/usuario';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-registrar',
@@ -13,6 +14,7 @@ export class RegistrarComponent implements OnInit {
 
   constructor(
     private service: UsuarioService,
+    private router: Router,
     private formBuilder: FormBuilder
   ) {}
 
@@ -53,6 +55,8 @@ export class RegistrarComponent implements OnInit {
     this.service.registrar(usuario).subscribe((usuario) => {
       console.log(usuario);
     });
+
+    this.router.navigate(['/login']);
   }
 
   statusBotao(): string {

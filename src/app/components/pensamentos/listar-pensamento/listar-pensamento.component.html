@@ -9,7 +9,7 @@
     <div class="botoes">
       <button class="botao" (click)="listarTodos()">Meu Mural</button>
       <button class="botao" (click)="listarFavoritos()">Meus Favoritos</button>
-      <button class="botao" routerLink="/pensamento/criar">Novo pensamento</button>
+      <button class="botao" routerLink="/pensamentos/criar">Novo pensamento</button>
     </div>
   </header>
   <div class="mural" *ngIf="pensamentos.length > 0, else semPensamentos">

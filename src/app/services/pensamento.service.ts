@@ -1,8 +1,8 @@
-import { Pensamento } from './pensamento';
+import { Pensamento } from '../interfaces/pensamento';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Pageable } from './pageable';
+import { Pageable } from '../interfaces/pageable';
 
 @Injectable({
   providedIn: 'root',

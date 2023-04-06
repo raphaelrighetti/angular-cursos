@@ -4,4 +4,6 @@ export interface Pensamento {
   autoria: string;
   modelo: string;
   favorito: boolean;
+  privado: boolean;
+  usuarioId: number;
 }

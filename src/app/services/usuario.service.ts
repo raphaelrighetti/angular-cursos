@@ -1,22 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Usuario } from './usuario';
-import { ObjetoToken } from './autenticacao/objeto-token';
+import { Usuario } from '../interfaces/usuario';
+import { ObjetoToken } from '../interfaces/objeto-token';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsuarioService {
   private urlUsuarios = 'http://localhost:8080/usuarios';
-  private urlLogin = 'http://localhost:8080/login';
   private urlRegistro = 'http://localhost:8080/registrar';
 
   constructor(private httpClient: HttpClient) {}
-
-  logar(usuario: Usuario): Observable<ObjetoToken> {
-    return this.httpClient.post<ObjetoToken>(this.urlLogin, usuario);
-  }
 
   registrar(usuario: Usuario): Observable<Usuario> {
     return this.httpClient.post<Usuario>(this.urlRegistro, usuario);

@@ -1,5 +1,5 @@
-import { PensamentoService } from './../pensamento.service';
-import { Pensamento } from './../pensamento';
+import { PensamentoService } from '../../../services/pensamento.service';
+import { Pensamento } from '../../../interfaces/pensamento';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -15,6 +15,8 @@ export class PensamentoComponent {
     autoria: '',
     modelo: '',
     favorito: false,
+    privado: false,
+    usuarioId: 0,
   };
 
   @Input()

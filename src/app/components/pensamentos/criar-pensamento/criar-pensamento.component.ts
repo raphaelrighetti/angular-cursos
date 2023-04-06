@@ -1,7 +1,8 @@
-import { PensamentoService } from './../pensamento.service';
+import { PensamentoService } from '../../../services/pensamento.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Pensamento } from 'src/app/interfaces/pensamento';
 
 @Component({
   selector: 'app-criar-pensamento',
@@ -42,10 +43,18 @@ export class CriarPensamentoComponent implements OnInit {
   criarPensamento(event: Event) {
     event.preventDefault();
 
-    console.log(this.formulario.status);
+    const pensamento: Pensamento = {
+      conteudo: this.formulario.get('conteudo')?.value as string,
+      autoria: this.formulario.get('autoria')?.value as string,
+      modelo: this.formulario.get('modelo')?.value as string,
+      favorito: false,
+      privado: false,
+      usuarioId: 0,
+    };
+
     if (this.formulario.valid) {
-      this.service.criar(this.formulario.value).subscribe(() => {
-        this.router.navigate(['pensamento/listar']);
+      this.service.criar(pensamento).subscribe(() => {
+        this.router.navigate(['pensamentos/listar']);
       });
     }
   }
