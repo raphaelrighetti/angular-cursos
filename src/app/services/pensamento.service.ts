@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Pageable } from '../interfaces/pageable';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -19,9 +20,10 @@ export class PensamentoService {
   listar(
     pagina: number,
     filtro: string,
-    favoritos: boolean
+    favoritos: boolean,
+    usuarioId: number
   ): Observable<Pageable> {
-    let url = this.urlAPI;
+    let url = `${this.urlAPI}/usuario/${usuarioId}`;
 
     const itensPorPagina = 6;
 

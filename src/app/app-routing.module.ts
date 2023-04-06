@@ -18,7 +18,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'pensamentos/listar',
+    path: 'pensamentos/listar/:id',
     component: ListarPensamentoComponent,
     canActivate: [AuthGuard],
   },

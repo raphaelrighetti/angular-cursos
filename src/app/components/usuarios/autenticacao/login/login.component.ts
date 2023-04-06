@@ -61,15 +61,9 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', obj.token);
         localStorage.setItem('refreshToken', obj.refreshToken);
 
-        console.log(
-          'localStorage usuarioId: ' + localStorage.getItem('usuarioId')
-        );
-        console.log('localStorage Token: ' + localStorage.getItem('token'));
-        console.log(
-          'localStorage Refresh Token: ' + localStorage.getItem('refreshToken')
-        );
-
-        this.router.navigate(['/pensamentos/listar']);
+        this.router.navigate([
+          '/pensamentos/listar/' + localStorage.getItem('usuarioId'),
+        ]);
       }
     });
   }

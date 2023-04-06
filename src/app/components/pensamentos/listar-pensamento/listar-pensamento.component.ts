@@ -1,6 +1,7 @@
 import { PensamentoService } from '../../../services/pensamento.service';
 import { Pensamento } from '../../../interfaces/pensamento';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-listar-pensamento',
@@ -12,12 +13,16 @@ export class ListarPensamentoComponent implements OnInit {
   pensamentosFavoritos: Pensamento[] = [];
 
   titulo = 'Meu Mural';
+  usuarioId = parseInt(this.route.snapshot.paramMap.get('id') as string);
   paginaAtual = 0;
   haMaisPensamentos = true;
   favoritos = false;
   filtro = '';
 
-  constructor(private service: PensamentoService) {}
+  constructor(
+    private service: PensamentoService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.listar();
@@ -28,7 +33,7 @@ export class ListarPensamentoComponent implements OnInit {
     this.haMaisPensamentos = true;
 
     this.service
-      .listar(this.paginaAtual, this.filtro, this.favoritos)
+      .listar(this.paginaAtual, this.filtro, this.favoritos, this.usuarioId)
       .subscribe((pageable) => {
         console.log(pageable);
 
@@ -56,7 +61,7 @@ export class ListarPensamentoComponent implements OnInit {
 
   carregarMaisPensamentos() {
     this.service
-      .listar(++this.paginaAtual, this.filtro, this.favoritos)
+      .listar(++this.paginaAtual, this.filtro, this.favoritos, this.usuarioId)
       .subscribe((pageable) => {
         if (pageable.content.length) {
           this.pensamentos.push(...pageable.content);
@@ -74,7 +79,7 @@ export class ListarPensamentoComponent implements OnInit {
     this.haMaisPensamentos = true;
 
     this.service
-      .listar(this.paginaAtual, this.filtro, this.favoritos)
+      .listar(this.paginaAtual, this.filtro, this.favoritos, this.usuarioId)
       .subscribe((pageable) => {
         this.pensamentos = pageable.content;
 
