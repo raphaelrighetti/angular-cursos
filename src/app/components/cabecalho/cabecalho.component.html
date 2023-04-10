@@ -1,13 +1,13 @@
 <header class="cabecalho ff-inter">
-  <div class="auth" *ngIf="!logado(), else nomeUsuario">
-    <button routerLink="/registrar">Registrar</button>
-    <button routerLink="/login">Login</button>
+  <div class="auth" *ngIf="logado(), else semPermissao">
+    <img src="/assets/imagens/usuario.png" alt="Ícone usuário">
+    <button (click)="homeUsuario()">{{ username }}</button>
   </div>
 
-  <ng-template #nomeUsuario>
+  <ng-template #semPermissao>
     <div class="auth">
-      <img src="/assets/imagens/usuario.png" alt="Ícone usuário">
-      <p>{{ username }}</p>
+      <button routerLink="/registrar">Registrar</button>
+      <button routerLink="/login">Login</button>
     </div>
   </ng-template>
 

@@ -28,7 +28,6 @@ export class PensamentoPublicoComponent implements OnInit {
       .detalhar(this.pensamento.usuarioId)
       .subscribe((usuario) => {
         this.username = usuario.username;
-        console.log(this.username);
       });
   }
 

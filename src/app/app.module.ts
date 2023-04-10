@@ -18,6 +18,7 @@ import { RegistrarComponent } from './components/usuarios/autenticacao/registrar
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { PensamentoPublicoComponent } from './components/pensamentos/pensamento-publico/pensamento-publico.component';
 import { ListarPensamentoPublicoComponent } from './components/pensamentos/listar-pensamento-publico/listar-pensamento-publico.component';
+import { HomeComponent } from './components/usuarios/home/home.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ListarPensamentoPublicoComponent } from './components/pensamentos/lista
     RegistrarComponent,
     PensamentoPublicoComponent,
     ListarPensamentoPublicoComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
