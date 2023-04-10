@@ -1,0 +1,9 @@
+<div class="pensamento {{ pensamento.modelo }} ff-roboto-mono" [ngClass]="largura()">
+  <div class="container">
+    <img src="/assets/imagens/{{ pensamento.modelo.toLowerCase() }}.png" alt="Aspas coloridas">
+    <p><b>{{ username }}</b></p>
+  </div>
+
+  <p class="conteudo">{{ pensamento.conteudo }}</p>
+  <p class="autoria"><b>{{ pensamento.autoria }}</b></p>
+</div>

@@ -50,10 +50,29 @@
 }
 
 .container-radio {
+  margin-bottom: 2rem;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2.5rem;
   flex-wrap: wrap;
+}
+
+.container-privado {
+  width: fit-content;
+
+  input {
+    width: 16px;
+    height: 16px;
+    margin-right: 16px;
+  }
+
+  label {
+    img {
+      width: 16px;
+      height: 16px;
+      margin-left: 6px;
+    }
+  }
 }
 
 .modelos {

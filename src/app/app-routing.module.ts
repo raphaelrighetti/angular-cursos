@@ -7,11 +7,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/usuarios/autenticacao/login/login.component';
 import { RegistrarComponent } from './components/usuarios/autenticacao/registrar/registrar.component';
 import { AuthGuard } from './guard/auth.guard';
+import { ListarPensamentoPublicoComponent } from './components/pensamentos/listar-pensamento-publico/listar-pensamento-publico.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'pensamentos/publico', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'registrar', component: RegistrarComponent },
+  {
+    path: 'pensamentos/publico',
+    component: ListarPensamentoPublicoComponent,
+  },
   {
     path: 'pensamentos/criar',
     component: CriarPensamentoComponent,

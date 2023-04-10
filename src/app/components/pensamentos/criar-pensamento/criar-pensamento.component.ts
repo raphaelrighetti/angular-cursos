@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Pensamento } from 'src/app/interfaces/pensamento';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-criar-pensamento',
@@ -10,15 +11,19 @@ import { Pensamento } from 'src/app/interfaces/pensamento';
   styleUrls: ['./criar-pensamento.component.scss'],
 })
 export class CriarPensamentoComponent implements OnInit {
+  usuarioId!: number;
   formulario!: FormGroup;
 
   constructor(
-    private service: PensamentoService,
+    private pensamentoService: PensamentoService,
+    private authService: AuthService,
     private router: Router,
     private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
+    this.usuarioId = this.authService.getObjetoToken().usuarioId;
+
     this.formulario = this.formBuilder.group({
       conteudo: [
         '',
@@ -36,7 +41,7 @@ export class CriarPensamentoComponent implements OnInit {
         ]),
       ],
       modelo: ['MODELO1'],
-      favorito: [false],
+      privado: [false],
     });
   }
 
@@ -48,15 +53,19 @@ export class CriarPensamentoComponent implements OnInit {
       autoria: this.formulario.get('autoria')?.value as string,
       modelo: this.formulario.get('modelo')?.value as string,
       favorito: false,
-      privado: false,
-      usuarioId: 0,
+      privado: this.formulario.get('privado')?.value,
+      usuarioId: this.usuarioId,
     };
 
     if (this.formulario.valid) {
-      this.service.criar(pensamento).subscribe(() => {
-        this.router.navigate(['pensamentos/listar']);
+      this.pensamentoService.criar(pensamento).subscribe(() => {
+        this.router.navigate(['pensamentos/listar/' + this.usuarioId]);
       });
     }
+  }
+
+  meuMural() {
+    this.router.navigate(['pensamentos/listar/' + this.usuarioId]);
   }
 
   statusBotao(): string {

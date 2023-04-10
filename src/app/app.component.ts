@@ -8,7 +8,5 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'memoteca';
 
-  ngOnInit(): void {
-    localStorage.clear();
-  }
+  ngOnInit(): void {}
 }

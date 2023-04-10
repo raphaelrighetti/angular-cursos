@@ -5,17 +5,16 @@
         (keyup)="pesquisarPensamentos()">
       <img src="/assets/imagens/lupa.png" alt="Lupa azul">
     </div>
-    <h2 class="ff-inter">{{ titulo }}</h2>
-    <div class="botoes">
+    <h2 class="ff-inter">Pensamentos<br>Públicos</h2>
+    <div class="botoes" *ngIf="logado()">
       <button class="botao" routerLink="/pensamentos/publico">Pensamentos Públicos</button>
-      <button class="botao" (click)="listarTodos()">Meu Mural</button>
-      <button class="botao" (click)="listarFavoritos()">Meus Favoritos</button>
+      <button class="botao" (click)="meuMural()">Meu Mural</button>
       <button class="botao" routerLink="/pensamentos/criar">Novo Pensamento</button>
     </div>
   </header>
   <div class="mural" *ngIf="pensamentos.length > 0, else semPensamentos">
     <div *ngFor="let pensamento of pensamentos">
-      <app-pensamento [pensamento]="pensamento" [pensamentosFavoritos]="pensamentosFavoritos"></app-pensamento>
+      <app-pensamento-publico [pensamento]="pensamento"></app-pensamento-publico>
     </div>
   </div>
 </section>
@@ -25,6 +24,6 @@
 
 <ng-template #semPensamentos>
   <div class="ff-inter sem-pensamentos">
-    <p>Ainda não há nenhum pensamento cadastrado.</p>
+    <p>Ainda não há nenhum pensamento público cadastrado.</p>
   </div>
 </ng-template>

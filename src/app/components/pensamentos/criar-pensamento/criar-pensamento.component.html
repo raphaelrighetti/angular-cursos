@@ -78,10 +78,15 @@
       </div>
     </div>
 
+    <div class="container-privado">
+      <input type="checkbox" id="privado" formControlName="privado">
+      <label for="privado">Privado<img src="/assets/imagens/cadeado.png" alt="Ícone cadeado"></label>
+    </div>
+
     <div class="acoes">
       <button type="submit" (click)="criarPensamento($event)" [disabled]="!formulario.valid"
         [ngClass]="statusBotao()">Salvar</button>
-      <button type="button" routerLink="/pensamentos/listar" class="botao">Cancelar</button>
+      <button type="button" (click)="meuMural()" class="botao">Cancelar</button>
     </div>
   </form>
 </section>

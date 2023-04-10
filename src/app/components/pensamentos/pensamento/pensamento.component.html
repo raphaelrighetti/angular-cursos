@@ -5,6 +5,10 @@
   <p class="autoria"><b>{{ pensamento.autoria }}</b></p>
 
   <div class="acoes">
+    <button class="privado" (click)="mudarPrivado()">
+      <img src="/assets/imagens/{{ mudarIconePrivado() }}.png">
+    </button>
+
     <button class="botao-favorito" (click)="mudarFavorito()">
       <img src="/assets/imagens/icone-favorito-{{ mudarIconeFavorito() }}.png"
         alt="Ícone favorito {{ mudarIconeFavorito() }}">

@@ -17,13 +17,21 @@ export class PensamentoService {
     return this.http.post<Pensamento>(this.urlAPI, pensamento);
   }
 
+  listarPublicos(pagina: number, filtro: string): Observable<Pageable> {
+    return this.listar(pagina, filtro, false, null);
+  }
+
   listar(
     pagina: number,
     filtro: string,
     favoritos: boolean,
-    usuarioId: number
+    usuarioId: number | null
   ): Observable<Pageable> {
-    let url = `${this.urlAPI}/usuario/${usuarioId}`;
+    let url = this.urlAPI;
+
+    if (usuarioId) {
+      url += `/usuario/${usuarioId}`;
+    }
 
     const itensPorPagina = 6;
 
@@ -50,6 +58,12 @@ export class PensamentoService {
 
   mudarFavorito(pensamento: Pensamento): Observable<Pensamento> {
     pensamento.favorito = !pensamento.favorito;
+
+    return this.editar(pensamento);
+  }
+
+  mudarPrivado(pensamento: Pensamento): Observable<Pensamento> {
+    pensamento.privado = !pensamento.privado;
 
     return this.editar(pensamento);
   }

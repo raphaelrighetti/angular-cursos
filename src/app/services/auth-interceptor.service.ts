@@ -8,12 +8,13 @@ import { Injectable, Injector } from '@angular/core';
 import { Observable, catchError, switchMap, throwError } from 'rxjs';
 import { AuthService } from './auth.service';
 import { ObjetoToken } from '../interfaces/objeto-token';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthInterceptorService implements HttpInterceptor {
-  constructor(private injector: Injector) {}
+  constructor(private injector: Injector, private router: Router) {}
 
   intercept(
     req: HttpRequest<any>,
@@ -30,14 +31,14 @@ export class AuthInterceptorService implements HttpInterceptor {
         if (err.status) {
           return authService.refreshToken().pipe(
             switchMap((data: ObjetoToken) => {
-              console.log(data);
-
               authService.saveTokens(data);
               return next.handle(
                 this.addTokenHeader(req, authService.getToken())
               );
             }),
             catchError((err) => {
+              this.router.navigate(['/login']);
+
               return throwError(() => err);
             })
           );

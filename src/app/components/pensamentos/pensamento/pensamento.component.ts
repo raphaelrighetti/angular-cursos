@@ -48,4 +48,16 @@ export class PensamentoComponent {
       );
     });
   }
+
+  mudarIconePrivado(): string {
+    if (this.pensamento.privado) {
+      return 'privado';
+    } else {
+      return 'publico';
+    }
+  }
+
+  mudarPrivado() {
+    this.service.mudarPrivado(this.pensamento).subscribe(() => {});
+  }
 }

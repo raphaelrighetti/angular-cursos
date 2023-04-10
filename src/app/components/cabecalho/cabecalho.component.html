@@ -1,4 +1,16 @@
 <header class="cabecalho ff-inter">
+  <div class="auth" *ngIf="!logado(), else nomeUsuario">
+    <button routerLink="/registrar">Registrar</button>
+    <button routerLink="/login">Login</button>
+  </div>
+
+  <ng-template #nomeUsuario>
+    <div class="auth">
+      <img src="/assets/imagens/usuario.png" alt="Ícone usuário">
+      <p>{{ username }}</p>
+    </div>
+  </ng-template>
+
   <div class="logo">
     <img src="../../../assets/imagens/logo-memoteca.png" alt="Logo da aplicação Memoteca">
     <p>Guarde trechos de músicas, citações de livros, pensamentos e suas melhores ideias.</p>

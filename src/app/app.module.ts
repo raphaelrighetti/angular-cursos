@@ -16,6 +16,8 @@ import { BotaoCarregarMaisComponent } from './components/pensamentos/listar-pens
 import { LoginComponent } from './components/usuarios/autenticacao/login/login.component';
 import { RegistrarComponent } from './components/usuarios/autenticacao/registrar/registrar.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { PensamentoPublicoComponent } from './components/pensamentos/pensamento-publico/pensamento-publico.component';
+import { ListarPensamentoPublicoComponent } from './components/pensamentos/listar-pensamento-publico/listar-pensamento-publico.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
     BotaoCarregarMaisComponent,
     LoginComponent,
     RegistrarComponent,
+    PensamentoPublicoComponent,
+    ListarPensamentoPublicoComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,29 +2,58 @@
 .cabecalho {
   background: url(/assets/imagens/fundo-cabecalho.png);
   background-size: cover;
+
+  padding-top: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
 
-.cabecalho .logo {
-  width: 46%;
-  padding: 2rem 3rem;
-}
+  .auth {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-.cabecalho .logo img {
-  width: 90%;
-  max-width: 350px;
-  margin-bottom: 2rem;
-}
+    img {
+      width: 24px;
+      height: 24px;
+    }
 
-.cabecalho .imagem{
-  width: 40%;
-}
+    button,
+    p {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: large;
+      color: white;
+    }
 
-.cabecalho p {
-  font-size: 2rem;
-  color: #6BD1FF;
+    :first-child {
+      margin-right: 16px;
+    }
+  }
+
+  .logo {
+    width: 46%;
+    padding: 2rem 3rem;
+
+    img {
+      width: 90%;
+      max-width: 350px;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .imagem{
+    width: 40%;
+  }
+
+  p {
+    font-size: 2rem;
+    color: #6BD1FF;
+  }
 }
 
 @media (max-width: 576px) {

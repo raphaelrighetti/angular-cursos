@@ -35,8 +35,6 @@ export class ListarPensamentoComponent implements OnInit {
     this.service
       .listar(this.paginaAtual, this.filtro, this.favoritos, this.usuarioId)
       .subscribe((pageable) => {
-        console.log(pageable);
-
         this.pensamentos = pageable.content;
 
         if (this.favoritos) {

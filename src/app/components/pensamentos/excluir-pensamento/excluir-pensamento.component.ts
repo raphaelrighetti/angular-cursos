@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./excluir-pensamento.component.scss'],
 })
 export class ExcluirPensamentoComponent implements OnInit {
+  usuarioId!: number;
+
   pensamento: Pensamento = {
     id: 0,
     conteudo: '',
@@ -31,18 +33,19 @@ export class ExcluirPensamentoComponent implements OnInit {
 
     this.service.buscarPorId(id).subscribe((pensamento) => {
       this.pensamento = pensamento;
+      this.usuarioId = pensamento.usuarioId;
     });
   }
 
   excluirPensamento() {
     if (this.pensamento.id) {
       this.service.excluir(this.pensamento.id).subscribe(() => {
-        this.router.navigate(['/pensamentos/listar']);
+        this.router.navigate(['/pensamentos/listar/' + this.usuarioId]);
       });
     }
   }
 
   cancelar() {
-    this.router.navigate(['/pensamentos/listar']);
+    this.router.navigate(['/pensamentos/listar/' + this.usuarioId]);
   }
 }
