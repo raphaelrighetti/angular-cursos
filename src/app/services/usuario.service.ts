@@ -27,8 +27,8 @@ export class UsuarioService {
     return this.http.get<Usuario>(this.urlUsuarios);
   }
 
-  atualizar(usuario: Usuario): Observable<Usuario> {
-    return this.http.put<Usuario>(this.urlUsuarios, usuario);
+  atualizar(id: number, usuario: Usuario): Observable<Usuario> {
+    return this.http.put<Usuario>(`${this.urlUsuarios}/${id}`, usuario);
   }
 
   excluir(id: number): Observable<Usuario> {

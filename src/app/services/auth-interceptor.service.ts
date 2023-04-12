@@ -14,13 +14,14 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthInterceptorService implements HttpInterceptor {
-  constructor(private injector: Injector, private router: Router) {}
+  constructor(private injector: Injector) {}
 
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const authService = this.injector.get(AuthService);
+    const router = this.injector.get(Router);
 
     if (!authService.getToken()) {
       return next.handle(req);
@@ -37,14 +38,16 @@ export class AuthInterceptorService implements HttpInterceptor {
               );
             }),
             catchError((err) => {
-              this.router.navigate(['/login']);
+              router.navigate(['/login']);
+
+              console.log('meu deus do ceu');
 
               return throwError(() => err);
             })
           );
         }
 
-        this.router.navigate(['/login']);
+        router.navigate(['/login']);
 
         return throwError(() => err);
       })

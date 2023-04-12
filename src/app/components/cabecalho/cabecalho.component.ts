@@ -12,11 +12,7 @@ export class CabecalhoComponent {
   usuarioId!: number;
   username!: string;
 
-  constructor(
-    private router: Router,
-    private usuarioService: UsuarioService,
-    private authService: AuthService
-  ) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   homeUsuario() {
     this.router.navigate(['/usuarios/' + this.usuarioId]);
@@ -26,9 +22,7 @@ export class CabecalhoComponent {
     if (this.authService.logado() && !this.usuarioId) {
       this.usuarioId = this.authService.getObjetoToken().usuarioId;
 
-      this.usuarioService.detalhar(this.usuarioId).subscribe((usuario) => {
-        this.username = usuario.username;
-      });
+      this.username = this.authService.getObjetoToken().username;
     }
 
     return this.authService.logado();

@@ -8,7 +8,8 @@ import { LoginComponent } from './components/usuarios/autenticacao/login/login.c
 import { RegistrarComponent } from './components/usuarios/autenticacao/registrar/registrar.component';
 import { AuthGuard } from './guard/auth.guard';
 import { ListarPensamentoPublicoComponent } from './components/pensamentos/listar-pensamento-publico/listar-pensamento-publico.component';
-import { HomeComponent } from './components/usuarios/home/home.component';
+import { HomeUsuarioComponent } from './components/usuarios/home-usuario/home-usuario.component';
+import { EditarUsuarioComponent } from './components/usuarios/editar-usuario/editar-usuario.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'pensamentos/publico', pathMatch: 'full' },
@@ -40,7 +41,12 @@ const routes: Routes = [
   },
   {
     path: 'usuarios/:id',
-    component: HomeComponent,
+    component: HomeUsuarioComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'usuarios/editar/:id',
+    component: EditarUsuarioComponent,
     canActivate: [AuthGuard],
   },
 ];

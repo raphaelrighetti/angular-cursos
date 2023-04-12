@@ -6,4 +6,5 @@ export interface Pensamento {
   favorito: boolean;
   privado: boolean;
   usuarioId: number;
+  username?: string;
 }

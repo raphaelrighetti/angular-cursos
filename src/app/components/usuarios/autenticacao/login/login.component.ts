@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { catchError, throwError } from 'rxjs';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
@@ -57,9 +58,7 @@ export class LoginComponent implements OnInit {
 
     this.service.logar(usuario).subscribe((obj) => {
       if (obj) {
-        localStorage.setItem('usuarioId', String(obj.usuarioId));
-        localStorage.setItem('token', obj.token);
-        localStorage.setItem('refreshToken', obj.refreshToken);
+        this.service.saveTokens(obj);
 
         this.router.navigate([
           '/pensamentos/listar/' + localStorage.getItem('usuarioId'),

@@ -18,7 +18,10 @@ export class AuthService {
 
   logado() {
     return (
-      !!localStorage.getItem('token') && !!localStorage.getItem('refreshToken')
+      !!localStorage.getItem('usuarioId') &&
+      !!localStorage.getItem('username') &&
+      !!localStorage.getItem('token') &&
+      !!localStorage.getItem('refreshToken')
     );
   }
 
@@ -29,6 +32,8 @@ export class AuthService {
       refreshToken: localStorage.getItem('refreshToken'),
     };
 
+    console.log('jesus cristo');
+
     return this.http.post<ObjetoToken>(url, refreshTokenObj);
   }
 
@@ -36,6 +41,7 @@ export class AuthService {
     localStorage.clear();
 
     localStorage.setItem('usuarioId', String(obj.usuarioId));
+    localStorage.setItem('username', obj.username);
     localStorage.setItem('token', obj.token);
     localStorage.setItem('refreshToken', obj.refreshToken);
   }
@@ -49,6 +55,7 @@ export class AuthService {
 
     const objetoToken: ObjetoToken = {
       usuarioId,
+      username: localStorage.getItem('username') as string,
       token: localStorage.getItem('token') as string,
       refreshToken: localStorage.getItem('refreshToken') as string,
     };
